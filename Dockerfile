@@ -16,4 +16,5 @@ RUN yum -y install python36 python36-setuptools
 RUN easy_install-3.6 pip
 RUN pip3 install flask flask_restful temp pyopenssl
 
-ENTRYPOINT python36 /opt/pyopenocr/PyOpenOcr.py
+ENTRYPOINT bash
+#python36 /opt/pyopenocr/PyOpenOcr.py

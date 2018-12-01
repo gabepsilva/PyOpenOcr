@@ -25,7 +25,8 @@ class PyOpenOcr(Resource):
 
         os.system(f'tesseract {tf.name} {tf.name} -l eng')
 
-        f = open(f'{tf.name}.txt', "r")
+        print(f'{tf.name}.txt')
+        f = open(f'{tf.name}.txt', mode="r", encoding="utf-8")
         ocr_txt = f.read()
         f.close()
 
