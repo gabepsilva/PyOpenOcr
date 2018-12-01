@@ -34,7 +34,7 @@ class PyOpenOcr(Resource):
 
         return ocr_txt
 
-api.add_resource(PyOpenOcr, '/ocr')
+api.add_resource(PyOpenOcr, '/ocr-base64')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8443, ssl_context='adhoc')
