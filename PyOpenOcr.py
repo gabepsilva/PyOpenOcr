@@ -9,13 +9,9 @@ import tempfile
 app = Flask(__name__)
 api = Api(app)
 
-todos = {}
-
 class PyOpenOcr(Resource):
-    def get(self,):
-        return 'get'
-    
-    def post(self,):
+
+    def post(self):
 
         decoded = base64.decodebytes(request.data)
 
@@ -25,7 +21,6 @@ class PyOpenOcr(Resource):
 
         os.system(f'tesseract {tf.name} {tf.name} -l eng')
 
-        print(f'{tf.name}.txt')
         f = open(f'{tf.name}.txt', mode="r", encoding="utf-8")
         ocr_txt = f.read()
         f.close()
