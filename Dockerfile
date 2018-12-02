@@ -16,7 +16,6 @@ RUN mkdir -p /opt/pyopenocr
 WORKDIR /opt/pyopenocr
 
 RUN openssl genrsa 2048 > server.key
-#RUN openssl req -new -key server.key -out server.csr
 
 RUN openssl req -new -newkey rsa:4096 -key server.key -out server.csr \
     -subj "/C=CA/ST=ON/L=Toronto/O=pyopenocr/CN=pyopenocr"
