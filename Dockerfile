@@ -1,17 +1,15 @@
 FROM centos:7
 
-LABEL version="0.0.1"
+LABEL version="1.2.1"
 LABEL release-date="2018-12-01"
 
 EXPOSE 443/tcp
 
 ENV DOCKER true
+ENV PYTHONPATH /opt/pyopenocr/web
 
-ADD web/PyOpenOcr.py /opt/pyopenocr/PyOpenOcr.py
-ADD install/setup-env.sh /opt/pyopenocr/setup-env.sh
-ADD install/requirements.txt /opt/pyopenocr/requirements.txt
-ADD run_native.sh /opt/pyopenocr/run_native.sh
+ADD . /opt/pyopenocr/
 
-RUN /opt/pyopenocr/setup-env.sh
+RUN /opt/pyopenocr/install/setup-env.sh
 
 ENTRYPOINT /opt/pyopenocr/run_native.sh

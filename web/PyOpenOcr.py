@@ -14,7 +14,7 @@ class PyOpenOcrBase64(Resource):
 
     def post(self):
         decoded = base64.decodebytes(request.data)
-        return common.data_to_text(decoded.content, request.args)
+        return common.data_to_text(decoded, request.args)
 
 class PyOpenOcrURL(Resource):
 
