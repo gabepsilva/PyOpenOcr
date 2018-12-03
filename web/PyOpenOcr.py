@@ -14,16 +14,14 @@ class PyOpenOcrBase64(Resource):
 
     def post(self):
         decoded = base64.decodebytes(request.data)
-
-        return common.data_to_text(decoded)
+        return common.data_to_text(decoded.content, request.args)
 
 class PyOpenOcrURL(Resource):
 
     def post(self):
         url =  request.data.decode("utf-8")
         data = requests.get(url, allow_redirects=True, verify=False)
-
-        return common.data_to_text(data.content)
+        return common.data_to_text(data.content, request.args)
 
 
 api.add_resource(PyOpenOcrBase64, '/ocr-base64')
